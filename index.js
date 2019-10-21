@@ -1,9 +1,17 @@
 /* eslint-disable no-undef */
 
 import express from 'express'
-const app = express();
+import './src/config'
+import morgan from 'morgan';
+import router from './src/router'
 
-app.listen(3000,()=>
-    console.log(`Server is listening on port 3400`));
+const app = express();
+app.use(morgan('short'));
+app.use(router);
+
+
+const {PORT:port} = process.env;
+app.listen(port,()=>
+    console.log(`Server is listening on port ${port}`));
 module.exports = app;
 
