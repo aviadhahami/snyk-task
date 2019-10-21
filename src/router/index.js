@@ -1,9 +1,8 @@
 import { Router } from 'express'
+import { packageFetcher } from '../controllers/package-fetcher.ctrl'
 
 const router = new Router()
 
-router.get('/', (req, res) => {
-  return res.status(200).send('hi')
-})
+router.get('/:packageName/:packageVersion?', packageFetcher)
 
 export default router
