@@ -14,4 +14,5 @@ if (!('error' in result)) {
   each(process.env, (value, key) => envs[key] = value)
 }
 
+console.log({port: process.env.PORT});
 module.exports = envs
