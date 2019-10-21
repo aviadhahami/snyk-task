@@ -14,5 +14,4 @@ if (!('error' in result)) {
   each(process.env, (value, key) => envs[key] = value)
 }
 
-console.log(process.env);
 module.exports = envs
