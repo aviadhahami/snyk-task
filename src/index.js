@@ -9,10 +9,8 @@ const app = express();
 app.use(morgan('tiny'));
 app.use(compression());
 app.use(express.static('public'));
-
 app.use(router);
 
-// const { PORT: port } = process.env
 app.listen(PORT, () => {
 	console.log(`Listening on ${PORT}`);
 });
