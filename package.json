@@ -10,6 +10,7 @@
     "start": "node ./build/index.js"
   },
   "dependencies": {
+    "@babel/runtime": "^7.6.3",
     "axios": "^0.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
