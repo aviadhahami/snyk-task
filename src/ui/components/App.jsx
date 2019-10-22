@@ -2,7 +2,11 @@
 import React from 'react';
 
 export default (props) => {
+	const { tree } = props;
+	debugger
 	return (
-		<h2>Hi there {props.tree}</h2>
+		<div>
+			<h2>Hi there {tree.children.map(n => n.name).map(v => v.toString()).toString()}</h2>
+		</div>
 	);
 };
