@@ -1,4 +1,5 @@
 import findVersions from 'find-versions';
+import head from 'lodash/head';
 import { API } from './../config';
 
 const LATEST = 'latest';
@@ -8,7 +9,7 @@ const generateURL = ({ name, version = LATEST }) => {
 	buffer.push(name);
 	if (!name.includes('@')) {
 		if (version !== LATEST) {
-			buffer.push(findVersions(version, { loose: true }));
+			buffer.push(head(findVersions(version, { loose: true })));
 		} else {
 			buffer.push(version);
 		}
