@@ -8,8 +8,8 @@ function generateView ({ packageName, packageVersion, tree }) {
 	const baseHtml = `
   <html>
   <head>
-  <title>Info for package {{{packageName}}}:{{{packageVersion}}}</title>
-  <script>window.__INITIAL__DATA__ = ${JSON.stringify({ tree })}</script>
+	  <title>Info for package {{{packageName}}}:{{{packageVersion}}}</title>
+	  <script>window.__INITIAL__DATA__ = ${JSON.stringify({ tree })}</script>
   </head>
   <body>
   <div id="app">{{{app}}}</div>
