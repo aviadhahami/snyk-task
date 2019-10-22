@@ -8,7 +8,7 @@ const generateURL = ({ name, version = LATEST }) => {
 	buffer.push(name);
 	if (!name.includes('@')) {
 		if (version !== LATEST) {
-			buffer.concat(findVersions(version, { loose: true }));
+			buffer.push(findVersions(version, { loose: true }));
 		} else {
 			buffer.push(version);
 		}
