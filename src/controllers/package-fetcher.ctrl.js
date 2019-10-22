@@ -4,6 +4,7 @@ import { printTree } from '../logic/tree-printer';
 async function packageFetcher (req, res) {
 	const { packageName, packageVersion } = req.params;
 	console.log(req.params);
+
 	try {
 		const tree = await fetchDepsTree({ packageName, packageVersion });
 		printTree(tree);
