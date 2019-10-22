@@ -1,3 +1,4 @@
+import findVersions from 'find-versions';
 import { API } from './../config';
 
 const generateURL = ({ name, version = 'latest' }) => {
@@ -5,7 +6,7 @@ const generateURL = ({ name, version = 'latest' }) => {
 	buffer.push(API);
 	buffer.push(name);
 	if (!name.includes('@')) {
-		buffer.push(version.replace(/.*(\d\.\d.\d).*/, '$1'));
+		buffer.concat(findVersions(version, { loose: true }));
 	}
 	return buffer.join('/');
 };
