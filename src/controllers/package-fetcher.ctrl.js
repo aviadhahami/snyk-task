@@ -41,13 +41,10 @@ async function packageFetcher (req, res) {
       node => node.name.toUpperCase(),
       node => node.children
     )
-    return res.status(200).send(JSON.stringify(data))
+    console.log(tree)
+    return res.status(200).send(data)
   } catch (e) {
-    if (e.response) {
-      return res.status(e.response.status).send(e.message)
-    } else {
-      return res.status(500).send(e.message)
-    }
+    return res.status(500).send(e.message)
   }
 }
 export {
