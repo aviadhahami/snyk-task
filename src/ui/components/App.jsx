@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
+import Tree from 'react-tree-graph';
+import 'react-tree-graph/dist/style.css';
 
 export default (props) => {
 	const [ssrDone, setSsrState] = useState(false);
@@ -17,7 +19,10 @@ export default (props) => {
 	} else {
 		return (
 			<div>
-				<h2>Hi there...{Object.keys(tree).length.toString()}</h2>
+				<Tree
+					data={tree}
+					height={700}
+					width={1000}/>
 			</div>
 		);
 	}
