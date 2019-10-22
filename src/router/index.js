@@ -4,6 +4,6 @@ import { packageFetcher } from '../controllers/package-fetcher.ctrl';
 const router = new Router();
 
 // regex to match namespaced packages i.e. @babel/core
-router.get('/packages/:packageName([@\\/]\\w+\\/\\w+|\\S+)', packageFetcher);
+router.get('/packages/:packageName/:packageVersion?', packageFetcher);
 
 export default router;
