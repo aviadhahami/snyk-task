@@ -8,7 +8,7 @@ async function packageFetcher (req, res) {
 
 	try {
 		const tree = await fetchDepsTree({ packageName, packageVersion });
-		const view = generateView(tree)
+		const view = generateView({ packageVersion, tree, packageName });
 		printTree(tree);
 		return res.status(200).send(view);
 	} catch (e) {
