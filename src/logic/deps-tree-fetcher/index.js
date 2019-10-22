@@ -4,6 +4,7 @@ import { Node } from '../../structs/Node';
 
 const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 	const url = generateURL({ name: packageName, version: packageVersion });
+	console.log(url);
 	try {
 		const {
 			data: {

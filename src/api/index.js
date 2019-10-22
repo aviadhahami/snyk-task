@@ -6,8 +6,12 @@ const generateURL = ({ name, version = LATEST }) => {
 	const buffer = [];
 	buffer.push(API);
 	buffer.push(name);
-	if (!name.includes('@') && version !== LATEST) {
-		buffer.concat(findVersions(version, { loose: true }));
+	if (!name.includes('@')) {
+		if (version !== LATEST) {
+			buffer.concat(findVersions(version, { loose: true }));
+		} else {
+			buffer.push(version);
+		}
 	}
 	return buffer.join('/');
 };
