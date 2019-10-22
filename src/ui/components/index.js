@@ -6,4 +6,4 @@ import App from './App';
 hydrate(
 	<App
 		tree={window.__INITIAL__DATA__.tree}/>,
-	document.getElementById('reactele'));
+	document.getElementById('app'));
