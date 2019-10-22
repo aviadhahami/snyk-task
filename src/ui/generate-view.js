@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import App from './components/App.jsx';
+import App from './components/App';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import hbs from 'handlebars';
