@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { styles } from '../styles';
-import '../styles/list.css';
 
 const Tree = (props) => {
 	const [windowExists, setWindowState] = useState(false);
