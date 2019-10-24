@@ -19,7 +19,6 @@ const App = (props) => {
 			);
 		} else {
 			const { tree = {}, execTime } = props;
-			console.log(tree);
 			return (
 				<>
 					<AppHeader>
