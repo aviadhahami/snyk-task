@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { TreeNode } from './styled-components/list.components';
+import { TreeNode } from './styled-components';
 
 const Tree = (props) => {
 	const [windowExists, setWindowState] = useState(false);
