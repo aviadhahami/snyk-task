@@ -5,7 +5,7 @@ const router = new Router();
 
 const path = '/package/:packageName';
 
-// regex to match namespaced packages i.e. @babel/core
+// Redirecting to `latest` if no version was specified
 router.get(path, (req, res) => {
 	return res.redirect(`/package/${req.params.packageName}/latest`);
 });
