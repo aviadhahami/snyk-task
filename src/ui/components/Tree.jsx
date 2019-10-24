@@ -26,7 +26,7 @@ const Tree = (props) => {
 		return (
 			<TreeNode
 				key={id}>
-				<TreeNodeInfo hasChildren={children.length}>
+				<TreeNodeInfo hasChildren={children.length > 0}>
 					<p onClick={() => toggleNode(node)}>
 						[{node.subtreeSize - 1}] {name}: {version}
 					</p>

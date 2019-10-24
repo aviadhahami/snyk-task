@@ -18,8 +18,10 @@ export const TreeNode = styled.ul`
 `;
 
 export const TreeNodeInfo = styled.li`
+		cursor: auto;
 	${
-	(props) => props.hasChildren && console.log(props) && `
-        font-weight:bold;
-    `}
+	(props) => props.hasChildren && `
+		cursor: zoom-in;
+	`}
+}
 `;
