@@ -25,8 +25,8 @@
     "morgan": "^1.9.1",
     "print-tree": "^0.1.5",
     "react": "^16.10.2",
-    "react-d3-tree": "^1.15.3",
-    "react-dom": "^16.10.2"
+    "react-dom": "^16.10.2",
+    "react-treebeard": "^3.2.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
