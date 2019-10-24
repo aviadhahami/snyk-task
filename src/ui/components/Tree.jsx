@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { TreeNode } from './styled-components';
+import { TreeNode, TreeNodeInfo } from './styled-components';
 
 const Tree = (props) => {
 	const [windowExists, setWindowState] = useState(false);
@@ -16,24 +16,24 @@ const Tree = (props) => {
 		setToggled({ ...toggled, [node.id]: !toggled[node.id] });
 	}
 
-	function getChildren (node) {
-		return toggled[node.id] ? node.children.map(generateTree) : (<></>);
+	function getChildren (n) {
+		return toggled[n.id] ? n.children.map(generateTree) : (<></>);
 	}
 
 	function generateTree (node) {
-		const { id, name, version } = node;
+		const { id, name, version, children } = node;
 
 		return (
 			<TreeNode
 				key={id}>
-				<li>
+				<TreeNodeInfo hasChildren={children.length}>
 					<p onClick={() => toggleNode(node)}>
-						{name}: {version}
+						[{node.subtreeSize - 1}] {name}: {version}
 					</p>
 					<div>
 						{getChildren(node)}
 					</div>
-				</li>
+				</TreeNodeInfo>
 			</TreeNode>
 		);
 	}

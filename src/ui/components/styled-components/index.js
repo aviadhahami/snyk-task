@@ -14,5 +14,12 @@ export const AppContainer = styled.section`
 `;
 
 export const TreeNode = styled.ul`
-	background-color:'red'
+	list-style-type: none;
+`;
+
+export const TreeNodeInfo = styled.li`
+	${
+	(props) => props.hasChildren && console.log(props) && `
+        font-weight:bold;
+    `}
 `;
