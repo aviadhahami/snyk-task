@@ -21,7 +21,7 @@ const App = (props) => {
 			return (
 				<>
 					<div>
-						data here
+						Execution time: {Math.round(execTime / 1000)} seconds
 					</div>
 					<div>
 						<Tree data={tree}/>
