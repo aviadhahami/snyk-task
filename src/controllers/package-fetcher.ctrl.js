@@ -1,7 +1,7 @@
 import { performance } from 'perf_hooks';
 import { fetchDepsTree } from '../logic/deps-tree-fetcher';
 import { printTree } from '../logic/tree-printer';
-import { generateView } from '../ui/generate-view';
+import { generateView } from '../ui/react/generate-view';
 
 async function packageFetcher (req, res) {
 	const { packageName, packageVersion } = req.params;
