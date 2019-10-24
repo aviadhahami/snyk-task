@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
+import set from '@babel/runtime/helpers/esm/set';
 import React, { useEffect, useState } from 'react';
 import { styles } from '../styles';
 
 const Tree = (props) => {
 	const [windowExists, setWindowState] = useState(false);
+	const [toggled, setToggled] = useState({});
 
 	useEffect(() => {
 		if (window !== undefined) {
@@ -11,31 +13,40 @@ const Tree = (props) => {
 		}
 	});
 
-	const { data } = props;
+	function toggleNode (node) {
+		setToggled({ ...toggled, [node.id]: !toggled[node.id] });
+	}
 
-	function generateTree ({ name, version, children }) {
-		// const [toggle, setToggle] = useState(false);
-
-		function getChildren () {
-			return children.map(generateTree);
+	function getChildren (node) {
+		if (toggled[node.id]) {
+			return node.children.map(d => {
+				console.log({ d });
+				return generateTree(d);
+			});
 		}
+		return (<></>);
+	}
+
+	function generateTree (node) {
+		const { id, name, version, children } = node;
 
 		return (
 			<ul
-				key={name + version + Date.now()}
+				key={id}
 				style={styles.list}>
-				<li>
+				<li style={{ backgroundColor: 'blue' }}>
+					<p onClick={() => toggleNode(node)}>
+						{name}: {version}
+					</p>
 					<div>
-						<p>
-							{name}: {version}
-						</p>
-						{getChildren(children)}
+						{getChildren(node)}
 					</div>
 				</li>
 			</ul>
 		);
 	}
 
+	const { data } = props;
 	if (windowExists) {
 		return (
 			<>
