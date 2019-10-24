@@ -22,6 +22,8 @@ const App = (props) => {
 				<>
 					<div>
 						Execution time: {Math.round(execTime / 1000)} seconds
+						<br/>
+						# of deps in this package: {tree.subtreeSize}
 					</div>
 					<div>
 						<Tree data={tree}/>
