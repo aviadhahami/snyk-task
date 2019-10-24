@@ -12,7 +12,7 @@ const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 			}
 		} = await axios.get(url);
 
-		const tree = new Node({ name: packageName, version: packageVersion });
+		const tree = new Node({ name: `${packageName}: ${packageVersion}`, version: packageVersion });
 
 		if (Object.keys(dependencies).length) {
 			tree.children = await Promise.all(

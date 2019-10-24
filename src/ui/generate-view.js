@@ -10,6 +10,12 @@ function generateView ({ packageName, packageVersion, tree }) {
   <head>
 	  <title>Info for package {{{packageName}}}:{{{packageVersion}}}</title>
 	  <script>window.__INITIAL__DATA__ = ${JSON.stringify({ tree })}</script>
+	  <style>
+	  body, html{
+	  	padding:0;
+	  	margin:0;
+	  }
+	  </style>
   </head>
   <body>
   <div id="app">{{{app}}}</div>

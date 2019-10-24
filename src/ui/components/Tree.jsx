@@ -26,7 +26,11 @@ const Tree = (props) => {
 	const { data } = props;
 	if (windowExists) {
 		const { Treebeard } = require(/* react-treebeard */'react-treebeard');
-		return (<Treebeard data={data} onToggle={onToggle}/>);
+		return (
+			<Treebeard
+				data={data}
+				onToggle={onToggle}/>
+		);
 	}
 
 	return (

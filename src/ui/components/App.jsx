@@ -4,7 +4,7 @@ import Tree from './Tree';
 
 const styles = {
 	container: {
-		backgroundColo: 'white',
+		backgroundColor: '#21252B',
 		width: '100%',
 		height: '100%',
 		margin: 0,
