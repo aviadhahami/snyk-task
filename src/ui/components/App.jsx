@@ -1,41 +1,43 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
+import Tree from './Tree';
 
+const styles = {
+	container: {
+		backgroundColo: 'white',
+		width: '100%',
+		height: '100%',
+		margin: 0,
+		padding: 0,
+		display: 'flex',
+		justifyContent: 'center',
+		alignContent: 'center'
+	}
+};
 const App = (props) => {
 	const [ssrDone, setSsrState] = useState(false);
-	const [windowExists, setWindowState] = useState(false);
 
 	useEffect(() => {
 		setSsrState(true);
-		if (window !== undefined) {
-			setWindowState(true);
-		}
 	});
 
-	const { tree = {} } = props;
+	const getContent = () => {
+		const { tree = {} } = props;
 
-	if (!ssrDone) {
-		return (
-			<div>
-				<h2>Loading.....</h2>
-			</div>
-		);
-	} else {
-		if (windowExists) {
-			const { Tree } = require('react-d3-tree');
+		if (!ssrDone) {
 			return (
-				<div>
-					<Tree data={tree} />
-				</div>
+				<h2>Loading packages.....</h2>
 			);
 		} else {
-			return (
-				<div>
-					<p>Something is off</p>
-				</div>
-			);
+			return (<Tree data={tree}/>);
 		}
-	}
+	};
+
+	return (
+		<div style={styles.container}>
+			{getContent()}
+		</div>
+	);
 };
 
 export default App;
