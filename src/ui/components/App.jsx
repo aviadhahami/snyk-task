@@ -23,7 +23,7 @@ const App = (props) => {
 					<div>
 						Execution time: {Math.round(execTime / 1000)} seconds
 						<br/>
-						# of deps in this package: {tree.subtreeSize}
+						# of deps in this package: {parseInt(tree.subtreeSize).toLocaleString('en')}
 					</div>
 					<div>
 						<Tree data={tree}/>
