@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { AppContainer } from './styled-components';
+import toUpperCase from 'lodash/toUpper'
+import { AppContainer, AppHeader, ContentContainer } from './styled-components';
 import Tree from './Tree';
 
 const App = (props) => {
@@ -11,23 +12,29 @@ const App = (props) => {
 	});
 
 	const getContent = () => {
-		const { tree = {}, execTime } = props;
 
 		if (!ssrDone) {
 			return (
 				<h2>Loading packages.....</h2>
 			);
 		} else {
+			const { tree = {}, execTime } = props;
+			console.log(tree);
 			return (
 				<>
-					<div>
-						Execution time: {Math.round(execTime / 1000)} seconds
-						<br/>
-						# of deps in this package: {parseInt(tree.subtreeSize).toLocaleString('en')}
-					</div>
-					<div>
-						<Tree data={tree}/>
-					</div>
+					<AppHeader>
+						{toUpperCase(`INFORMATION ABOUT ${tree.name}: ${tree.version}`)}
+					</AppHeader>
+					<ContentContainer>
+						<div>
+							Execution time: {Math.round(execTime / 1000)} seconds
+							<br/>
+							dependencies tree size: {parseInt(tree.subtreeSize).toLocaleString('en')}
+						</div>
+						<div>
+							<Tree data={tree}/>
+						</div>
+					</ContentContainer>
 				</>
 			);
 		}
