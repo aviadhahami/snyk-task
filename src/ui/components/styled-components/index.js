@@ -21,7 +21,7 @@ export const TreeNodeInfo = styled.li`
 		cursor: auto;
 	${
 	(props) => props.hasChildren && `
-		cursor: zoom-in;
+		cursor: pointer;
 	`}
 }
 `;
