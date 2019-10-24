@@ -17,6 +17,7 @@ async function packageFetcher (req, res) {
 		printTree(tree);
 		return res.status(200).send(view);
 	} catch (e) {
+		console.log(e);
 		return res.status(500).send(e.message);
 	}
 }
