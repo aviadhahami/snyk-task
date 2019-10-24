@@ -1,7 +1,18 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { styles } from '../styles';
+import styled from 'styled-components';
 import Tree from './Tree';
+
+const AppContainer = styled.section`
+	background-color: #21252B;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	color: #fefefe;
+`;
 
 const App = (props) => {
 	const [ssrDone, setSsrState] = useState(false);
@@ -23,7 +34,7 @@ const App = (props) => {
 					<div>
 						data here
 					</div>
-					<div style={styles.treeContainer}>
+					<div>
 						<Tree data={tree}/>
 					</div>
 				</>
@@ -32,9 +43,9 @@ const App = (props) => {
 	};
 
 	return (
-		<div style={styles.container}>
+		<AppContainer>
 			{getContent()}
-		</div>
+		</AppContainer>
 	);
 };
 

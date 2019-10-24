@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
-import set from '@babel/runtime/helpers/esm/set';
 import React, { useEffect, useState } from 'react';
-import { styles } from '../styles';
+import { TreeNode } from './styled-components/list.components';
 
 const Tree = (props) => {
 	const [windowExists, setWindowState] = useState(false);
@@ -31,10 +30,9 @@ const Tree = (props) => {
 		const { id, name, version, children } = node;
 
 		return (
-			<ul
-				key={id}
-				style={styles.list}>
-				<li style={{ backgroundColor: 'blue' }}>
+			<TreeNode
+				key={id}>
+				<li>
 					<p onClick={() => toggleNode(node)}>
 						{name}: {version}
 					</p>
@@ -42,7 +40,7 @@ const Tree = (props) => {
 						{getChildren(node)}
 					</div>
 				</li>
-			</ul>
+			</TreeNode>
 		);
 	}
 
