@@ -9,6 +9,7 @@ export const AppContainer = styled.section`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	color: #fefefe;
+	font-family: 'Open Sans', sans-serif;
 `;
 
 export const TreeNode = styled.ul`

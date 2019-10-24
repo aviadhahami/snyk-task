@@ -17,17 +17,11 @@ const Tree = (props) => {
 	}
 
 	function getChildren (node) {
-		if (toggled[node.id]) {
-			return node.children.map(d => {
-				console.log({ d });
-				return generateTree(d);
-			});
-		}
-		return (<></>);
+		return toggled[node.id] ? node.children.map(generateTree) : (<></>);
 	}
 
 	function generateTree (node) {
-		const { id, name, version, children } = node;
+		const { id, name, version } = node;
 
 		return (
 			<TreeNode

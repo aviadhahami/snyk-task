@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { AppContainer } from './styled-components';
 import Tree from './Tree';
 
-
 const App = (props) => {
 	const [ssrDone, setSsrState] = useState(false);
 

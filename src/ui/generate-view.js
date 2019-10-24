@@ -16,6 +16,7 @@ function generateView ({ packageName, packageVersion, payload }) {
 	  	margin:0;
 	  }
 	  </style>
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
   <div id="app">{{{app}}}</div>

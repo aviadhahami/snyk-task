@@ -5,7 +5,6 @@ class Node {
 		this.name = name;
 		this.version = version;
 		this.children = children;
-		this.active = false;
 	}
 }
 
