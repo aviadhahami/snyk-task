@@ -5,5 +5,6 @@ import App from './App';
 
 hydrate(
 	<App
-		tree={window.__INITIAL__DATA__.tree}/>,
+		tree={window.__INITIAL__DATA__.tree}
+		execTime={window.__INITIAL__DATA__.execTime}/>,
 	document.getElementById('app'));

@@ -1,4 +1,5 @@
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
 	entry: {
@@ -20,9 +21,29 @@ const config = {
 					}
 				},
 				exclude: /node_modules/
+			},
+			{
+				test: /\.css$/,
+				loader: ExtractTextPlugin.extract({
+					loader: [
+						{
+							loader: 'css-loader',
+							query: {
+								localIdentName: '[hash:8]',
+								modules: true
+							}
+						}
+					]
+				})
 			}
 		]
 	},
+	plugins: [
+		new ExtractTextPlugin({
+			filename: '[name].css',
+			allChunks: true
+		})
+	],
 	resolve: {
 		extensions: ['.js', '.jsx', '.json', '.wasm', '.mjs', '*']
 	}

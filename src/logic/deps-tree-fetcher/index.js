@@ -4,7 +4,6 @@ import { Node } from '../../structs/Node';
 
 const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 	const url = generateURL({ name: packageName, version: packageVersion });
-	console.log(url);
 	try {
 		const {
 			data: {
@@ -12,7 +11,7 @@ const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 			}
 		} = await axios.get(url);
 
-		const tree = new Node({ name: `${packageName}: ${packageVersion}`, version: packageVersion });
+		const tree = new Node({ name: packageName, version: packageVersion });
 
 		if (Object.keys(dependencies).length) {
 			tree.children = await Promise.all(

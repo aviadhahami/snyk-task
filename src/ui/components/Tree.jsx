@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
+import { styles } from '../styles';
+import '../styles/list.css';
 
 const Tree = (props) => {
 	const [windowExists, setWindowState] = useState(false);
@@ -10,26 +12,36 @@ const Tree = (props) => {
 		}
 	});
 
-	const [cursor, setCursor] = useState(false);
-
-	const onToggle = (node, toggled) => {
-		if (cursor) {
-			cursor.active = false;
-		}
-		node.active = true;
-		if (node.children) {
-			node.toggled = toggled;
-		}
-		setCursor(node);
-	};
-
 	const { data } = props;
-	if (windowExists) {
-		const { Treebeard } = require(/* react-treebeard */'react-treebeard');
+
+	function generateTree ({ name, version, children }) {
+		// const [toggle, setToggle] = useState(false);
+
+		function getChildren () {
+			return children.map(generateTree);
+		}
+
 		return (
-			<Treebeard
-				data={data}
-				onToggle={onToggle}/>
+			<ul
+				key={name + version + Date.now()}
+				style={styles.list}>
+				<li>
+					<div>
+						<p>
+							{name}: {version}
+						</p>
+						{getChildren(children)}
+					</div>
+				</li>
+			</ul>
+		);
+	}
+
+	if (windowExists) {
+		return (
+			<>
+				{generateTree(data)}
+			</>
 		);
 	}
 
