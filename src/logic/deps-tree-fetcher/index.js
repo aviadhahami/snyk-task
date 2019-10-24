@@ -21,7 +21,7 @@ const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 		}
 		return tree;
 	} catch (e) {
-		if (e.response.status === 404) {
+		if (e.response && e.response.status === 404) {
 			throw new Error('NPM says nope. so nope.');
 		}
 		return new Node({ name: packageName, version: packageVersion });
