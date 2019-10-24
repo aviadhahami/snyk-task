@@ -21,6 +21,7 @@ const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 		}
 		return tree;
 	} catch (e) {
+		console.log(e.request.status);
 		return new Node({ name: packageName, version: packageVersion });
 	}
 };

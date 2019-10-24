@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon & webpack -wd",
+    "dev": "npm run dev:client & npm run dev:server",
+    "dev:client": "webpack -wd",
+    "dev:server": "nodemon",
     "build:server": "BABEL_ENV=server babel ./src --ignore ./ui --out-dir ./build",
     "build:client": "npm run webpack",
     "build": "npm run build:client && npm run build:server",
