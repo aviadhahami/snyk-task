@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { generateURL } from '../../api';
 import { Node } from '../../structs/Node';
-import Cache, { packageToCache } from './../../cache';
+import Cache from './../../cache';
+import { packageNameForCache } from '../semver';
 
 const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 	const tree = new Node({ name: packageName, version: packageVersion });
-	const cacheName = packageToCache(packageName, packageVersion);
+	const cacheName = packageNameForCache(packageName, packageVersion);
 	try {
 		const entry = await Cache.get(cacheName);
 		if (entry) {

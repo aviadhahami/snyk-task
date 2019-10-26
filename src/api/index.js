@@ -1,5 +1,5 @@
 import { API } from './../config';
-import { cleanVersion } from '../logic/version-cleaner';
+import { packageInfo } from '../logic/semver';
 
 const LATEST = 'latest';
 const generateURL = ({ name, version = LATEST }) => {
@@ -8,7 +8,8 @@ const generateURL = ({ name, version = LATEST }) => {
 	buffer.push(name);
 	if (!name.includes('@')) {
 		if (version !== LATEST) {
-			buffer.push(cleanVersion(version));
+			const info = packageInfo(name, version);
+			buffer.push((info.version));
 		} else {
 			buffer.push(version);
 		}

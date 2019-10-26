@@ -1,5 +1,4 @@
 import { Mutex } from 'async-mutex';
-import { cleanVersion } from '../logic/version-cleaner';
 
 class Cache {
 	constructor () {
@@ -29,5 +28,3 @@ class Cache {
 }
 
 export default new Cache();
-
-export const packageToCache = (n, v) => `${n} ${cleanVersion(v)}`;
