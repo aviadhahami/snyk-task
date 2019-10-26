@@ -22,7 +22,14 @@ Navigate to `https://snyk-task.herokuapp.com/package/<PACKAGE_NAME>/<PACKAGE_VER
 #### Implementation
 
 #### Things I would add
+1. Garbage collection & TTL
+    1. If our storage is limited, then we could use a "garbage collector" (or any TTL-logic mechanism) in order to
+    reduce the storage amount. We can achieve this by counting the amount each package was queried and remove the less-frequesnt
+    ones.  
 1. Memoization
     1. Upon counting each packages' "demand score" (the amount of time a package was being requested) - we can add memoization 
     mechanism in order to speed lookup time;
     2. For a large amount of memoized queries -  we can gate the memoization mechanism with another bloom filter (or other hash mechanism of sort) 
+1. Semver ranges logic
+    1. Upon multiple requests for the same package but different versions, I'd merge dependency trees w.r.t the package 
+    ranges and under semver constraints.   
