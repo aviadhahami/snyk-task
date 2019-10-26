@@ -1,4 +1,4 @@
-![](https://www.brandeps.com/logo-download/S/Snyk-logo-vector-01.svg)
+![](https://image4.owler.com/logo/snyk_owler_20190903_061043_large.png)
 
 ## SNYK-TASK
 
