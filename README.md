@@ -1,8 +1,21 @@
-![](https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/snyk-512.png)
+![](https://www.brandeps.com/logo-download/S/Snyk-logo-vector-01.svg)
 
 ## SNYK-TASK
 
+
+#### Working premise
+In order to save time, I've converted any range given (if any) to the nearest valid semver release, using the 
+[find-versions](https://www.npmjs.com/package/find-versions) package;
+
+
+ 
 #### Usage
+Navigate to `https://snyk-task.herokuapp.com/package/<PACKAGE_NAME>/<PACKAGE_VERSION>` 
+
+| Param        | Value           | Default  |
+| ------------- |-------------| -----|
+| PACKAGE_NAME      | a valid npm package name | none |
+| PACKAGE_VERSION      | a valid semver version      |   latest |
 
 #### Description
 
