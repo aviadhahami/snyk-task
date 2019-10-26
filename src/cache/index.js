@@ -9,7 +9,8 @@ class Cache {
 	async get (k) {
 		const release = await this.mutex.acquire();
 		try {
-			return this.cache[k];
+			const res = this.cache[k];
+			console.log((res ? 'HIT' : 'MISS') + ` -- ${k}`);
 		} finally {
 			release();
 		}
