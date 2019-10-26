@@ -25,14 +25,14 @@ const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 						.map(async ([name, version]) => fetchDepsTree({ packageName: name, packageVersion: version }))
 				);
 			}
+			const setReply = await Cache.set(cacheName, tree);
+			console.log({ setReply }, cacheName);
 		}
 	} catch (e) {
 		if (e.response && e.response.status === 404) {
 			throw new Error('NPM says nope. so nope.');
 		}
 	}
-	const setReply = await Cache.set(cacheName, tree);
-	console.log({ setReply }, cacheName);
 	return tree;
 };
 
