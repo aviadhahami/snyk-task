@@ -21,7 +21,6 @@ class Cache {
 		const release = await this.mutex.acquire();
 		try {
 			this.cache.set(k, v);
-			console.log(this.cache);
 			return true;
 		} finally {
 			release();
