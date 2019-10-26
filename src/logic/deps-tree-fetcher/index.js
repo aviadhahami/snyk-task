@@ -1,16 +1,28 @@
 import axios from 'axios';
 import { generateURL } from '../../api';
 import { Node } from '../../structs/Node';
+import Cache, { packageToCache } from './../../cache';
 
-const fetchDepsTree = async ({ packageName, packageVersion = 'latest', firstInvoke = false }) => {
-	const url = generateURL({ name: packageName, version: packageVersion });
-	const tree = new Node({ name: packageName, version: packageVersion });
-	try {
+const cacheOrFetch = async (name, version) => {
+	const cacheName = packageToCache(name, version);
+	const entry = await Cache.get(cacheName)
+	if(entry){
+		return entry;
+	}else{
+		const url = generateURL({ name: packageName, version: packageVersion });
+		
 		const {
 			data: {
 				dependencies = {}
 			}
 		} = await axios.get(url);
+	}
+};
+
+const fetchDepsTree = async ({ packageName, packageVersion = 'latest', firstInvoke = false }) => {
+	const tree = new Node({ name: packageName, version: packageVersion });
+	try {
+		
 
 		if (Object.keys(dependencies).length) {
 			tree.children = await Promise.all(

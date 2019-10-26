@@ -1,6 +1,5 @@
-import findVersions from 'find-versions';
-import head from 'lodash/head';
 import { API } from './../config';
+import { cleanVersion } from '../logic/version-cleaner';
 
 const LATEST = 'latest';
 const generateURL = ({ name, version = LATEST }) => {
@@ -9,7 +8,7 @@ const generateURL = ({ name, version = LATEST }) => {
 	buffer.push(name);
 	if (!name.includes('@')) {
 		if (version !== LATEST) {
-			buffer.push(head(findVersions(version, { loose: true })));
+			buffer.push(cleanVersion(version));
 		} else {
 			buffer.push(version);
 		}
