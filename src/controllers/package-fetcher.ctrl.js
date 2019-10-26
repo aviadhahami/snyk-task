@@ -7,7 +7,7 @@ async function packageFetcher (req, res) {
 	const { packageName, packageVersion } = req.params;
 	try {
 		const start = performance.now();
-		const tree = await fetchDepsTree({ packageName, packageVersion });
+		const tree = await fetchDepsTree({ packageName, packageVersion, firstInvoke: true });
 		const end = performance.now();
 		const payload = {
 			tree,
