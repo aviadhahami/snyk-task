@@ -9,7 +9,6 @@ const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 	const cacheName = packageNameForCache(packageName, packageVersion);
 	try {
 		const entry = await Cache.get(cacheName);
-		console.log({ entry });
 		if (entry) {
 			return entry;
 		} else {
@@ -28,7 +27,6 @@ const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 				);
 			}
 			const setReply = await Cache.set(cacheName, tree);
-			console.log({ setReply }, cacheName);
 		}
 	} catch (e) {
 		if (e.response && e.response.status === 404) {
