@@ -29,7 +29,7 @@ const App = (props) => {
 							<br/>
 							# of nodes in tree: {parseInt(tree.subtreeSize).toLocaleString('en')}
 							<br/>
-							Size of tree in memory: {(size / 1e-6).toFixed(5)}MB
+							Size of tree in memory: {(size * 1e-6).toFixed(5)}MB
 						</div>
 						<div>
 							<Tree data={tree}/>
