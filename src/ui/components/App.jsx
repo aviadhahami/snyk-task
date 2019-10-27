@@ -25,7 +25,7 @@ const App = (props) => {
 					</AppHeader>
 					<ContentContainer>
 						<div>
-							Execution time: {Math.round(execTime / 1000)} seconds
+							Execution time: {execTime} ms
 							<br/>
 							# of nodes in tree: {parseInt(tree.subtreeSize).toLocaleString('en')}
 							<br/>
