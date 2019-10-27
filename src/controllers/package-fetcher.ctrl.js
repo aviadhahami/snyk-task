@@ -11,10 +11,10 @@ async function packageFetcher (req, res) {
 		const end = performance.now();
 		const payload = {
 			tree,
-			execTime: end - start
+			execTime: end - start,
+			size: tree.size
 		};
 
-		console.log({ size: tree.size });
 		const view = generateView({ packageVersion, packageName, payload });
 		// printTree(tree);
 		return res.status(200).send(view);
