@@ -9,7 +9,7 @@ const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 	const cacheName = packageNameForCache(packageName, packageVersion);
 	try {
 		const entry = await Cache.get(cacheName);
-		console.log({entry});
+		console.log({ entry });
 		if (entry) {
 			return entry;
 		} else {
