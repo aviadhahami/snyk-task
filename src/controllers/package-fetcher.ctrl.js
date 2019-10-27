@@ -13,6 +13,8 @@ async function packageFetcher (req, res) {
 			tree,
 			execTime: end - start
 		};
+
+		console.log({ size: tree.size });
 		const view = generateView({ packageVersion, packageName, payload });
 		// printTree(tree);
 		return res.status(200).send(view);
