@@ -25,11 +25,11 @@ const App = (props) => {
 					</AppHeader>
 					<ContentContainer>
 						<div>
-							Execution time: {execTime} ms
+							Execution time: {execTime.toFixed(5)} ms
 							<br/>
 							# of nodes in tree: {parseInt(tree.subtreeSize).toLocaleString('en')}
 							<br/>
-							Size of tree in memory: ${(size / 1e-6).toString().substring(0, 7)}MB
+							Size of tree in memory: {(size / 1e-6).toFixed(5)}MB
 						</div>
 						<div>
 							<Tree data={tree}/>
