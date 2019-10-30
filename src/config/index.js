@@ -7,6 +7,7 @@ const result = dotenv.config();
 
 let envs;
 
+// Helping us load production env if needed
 if (!('error' in result)) {
 	envs = result.parsed;
 } else {
