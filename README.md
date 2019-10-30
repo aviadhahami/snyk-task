@@ -6,9 +6,11 @@
 ![](./coverage/badge-lines.svg)
 ![](./coverage/badge-statements.svg)
 
-#### Working premise
-In order to save time, I've converted any range given (if any) to the nearest valid semver release, using the 
+> #### Working premise
+> In order to save time, I've converted any range given (if any) to the nearest valid semver release, using the 
 [find-versions](https://www.npmjs.com/package/find-versions) package;
+>
+
 
 
  
