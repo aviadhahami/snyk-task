@@ -2,7 +2,9 @@ import { API } from './../config';
 import { packageInfo } from '../logic/semver';
 
 const LATEST = 'latest';
-const generateURL = ({ name, version = LATEST }) => {
+const generateURL = ({ name, version = LATEST } = {}) => {
+	if (!name) { throw new Error('No name supplied'); }
+
 	const buffer = [];
 	buffer.push(API);
 	buffer.push(name);

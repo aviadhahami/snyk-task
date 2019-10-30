@@ -3,8 +3,7 @@ import { packageFetcher } from '../controllers/package-fetcher.ctrl';
 
 const router = new Router();
 
-
-router.get('/healthcheck',(req,res)=>{
+router.get('/healthcheck', (req, res) => {
 	return res.status(200).send();
 });
 

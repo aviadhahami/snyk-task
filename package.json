@@ -12,7 +12,7 @@
     "build:client": "npm run webpack",
     "build": "npm run build:client && npm run build:server",
     "clean": "rm -rf build",
-    "lint": "eslint ./src --fix",
+    "lint": "eslint ./src ./__tests__ --fix",
     "webpack": "webpack -d",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
