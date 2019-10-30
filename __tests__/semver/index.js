@@ -11,6 +11,9 @@ describe('semver test suite', () => {
 		it('should trim semver notation', () => {
 			expect(packageInfo('rimraf', '~2.2.1')).toEqual({ name: 'rimraf', version: '2.2.1' });
 		});
+		it('should fallback to "latest" for no version input', () => {
+			expect(packageInfo('rimraf')).toEqual({ name: 'rimraf', version: 'latest' });
+		});
 	});
 
 	describe('packageNameForCache func', () => {
