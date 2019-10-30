@@ -14,7 +14,7 @@
     "clean": "rm -rf build",
     "lint": "eslint ./src ./__tests__ --fix",
     "webpack": "webpack -d",
-    "test": "jest",
+    "test": "jest --runInBand",
     "test:watch": "npm run test -- --watch",
     "test:coverage": "npm test -- --coverage",
     "test:badges": "npm run test:coverage && jest-coverage-badges"
