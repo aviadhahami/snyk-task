@@ -15,6 +15,7 @@
     "lint": "eslint ./src --fix",
     "webpack": "webpack -d",
     "test": "jest",
+    "test:watch": "npm run test -- --watch",
     "test:coverage": "npm test -- --coverage",
     "test:badges": "npm run test:coverage && jest-coverage-badges"
   },
@@ -53,6 +54,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.9.0",
     "nodemon": "^1.18.4",
+    "supertest": "^4.0.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
   },

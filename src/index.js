@@ -11,6 +11,6 @@ app.use(compression());
 app.use(express.static('public'));
 app.use(router);
 
-app.listen(PORT, () => {
+export default app.listen(PORT, () => {
 	console.log(`Listening on ${PORT}`);
 });

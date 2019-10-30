@@ -35,6 +35,8 @@ At each level we're testing whether we've "previously seen" the requested packag
 
 In order to make sure we don't doubly-fetch packages due to race conditions, the cache is gated by a mutex s.t. no two async tasks write to the cache together;
 
+Front-end wise - I'm using React with Styled Components, served via SSR.
+
 #### Things I would add
 1. Garbage collection & TTL
     1. If our storage is limited, then we could use a "garbage collector" (or any TTL-logic mechanism) in order to
