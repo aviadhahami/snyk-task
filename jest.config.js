@@ -1,7 +1,8 @@
 module.exports = {
-	testEnvironment: "node",
+	testEnvironment: 'node',
 	coveragePathIgnorePatterns: [
-		"/node_modules/"
+		'/node_modules/',
+		'<rootDir>/src/ui/'
 	],
 	coverageReporters: [
 		'json-summary',

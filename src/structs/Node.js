@@ -24,6 +24,10 @@ class Node {
 		return 1 + this.children.reduce((sum, current) => sum + current.subtreeSize, 0);
 	}
 
+	get size () {
+		return sizeOf(this.toJSON());
+	}
+
 	toJSON () {
 		const { id, name, version, children, subtreeSize } = this;
 		return {
@@ -33,10 +37,6 @@ class Node {
 			children,
 			subtreeSize
 		};
-	}
-
-	get size () {
-		return sizeOf(this.toJSON());
 	}
 }
 
