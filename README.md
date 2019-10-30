@@ -1,7 +1,10 @@
 ![](https://image4.owler.com/logo/snyk_owler_20190903_061043_large.png)
 
 ## SNYK-TASK
-
+![](./coverage/badge-branches.svg)
+![](./coverage/badge-functions.svg)
+![](./coverage/badge-lines.svg)
+![](./coverage/badge-statements.svg)
 
 #### Working premise
 In order to save time, I've converted any range given (if any) to the nearest valid semver release, using the 
