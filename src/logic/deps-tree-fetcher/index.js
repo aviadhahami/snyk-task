@@ -28,7 +28,7 @@ const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 			}
 			await Cache.set(cacheName, tree);
 
-			return;
+			return tree;
 		}
 	} catch (e) {
 		if (e.response && e.response.status === 404) {

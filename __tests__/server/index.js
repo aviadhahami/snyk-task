@@ -2,7 +2,7 @@ import supertest from 'supertest';
 import app from './../../src/';
 
 describe('Server mounting tests', () => {
-	afterAll(() => {
+	afterAll(async () => {
 		app.close();
 	});
 	it('should mount the server and respond w/ 200 for healthcheck', async () => {

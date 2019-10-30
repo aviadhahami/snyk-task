@@ -9,6 +9,7 @@ async function packageFetcher (req, res) {
 		const start = performance.now();
 		const tree = await fetchDepsTree({ packageName, packageVersion, firstInvoke: true });
 		const end = performance.now();
+
 		const payload = {
 			tree,
 			execTime: end - start,
