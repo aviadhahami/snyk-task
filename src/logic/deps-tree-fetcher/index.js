@@ -26,7 +26,9 @@ const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 						.map(async ([name, version]) => fetchDepsTree({ packageName: name, packageVersion: version }))
 				);
 			}
-			const setReply = await Cache.set(cacheName, tree);
+			await Cache.set(cacheName, tree);
+
+			return;
 		}
 	} catch (e) {
 		if (e.response && e.response.status === 404) {
