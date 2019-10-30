@@ -14,7 +14,6 @@ if (!('error' in result)) {
 	envs = {};
 	each(process.env, (value, key) => envs[key] = value);
 }
-
 const API = 'https://registry.npmjs.org';
 
 module.exports = {
