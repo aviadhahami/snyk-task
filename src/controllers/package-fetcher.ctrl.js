@@ -16,7 +16,7 @@ async function packageFetcher (req, res) {
 			size: tree.size
 		};
 
-		const view = generateView({ packageVersion, packageName, payload });
+		const view = generateView({ packageName: tree.name, packageVersion: tree.version, payload });
 		printTree(tree);
 		return res.status(200).send(view);
 	} catch (e) {
