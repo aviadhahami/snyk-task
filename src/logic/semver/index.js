@@ -17,7 +17,7 @@ import { generateURL } from '../../api';
  * @param v
  * @returns "latest" satisfying version for a given package
  */
-export const packageInfo = async (p, v) => {
+export const packageInfo = async (p, v = '*') => {
 	// Danger!
 	const url = await generateURL({ name: p, fetchPackageInfo: true });
 	const {
