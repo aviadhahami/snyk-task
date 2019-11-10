@@ -13,7 +13,7 @@ const typeSizes = {
 const sizeOf = value => typeSizes[typeof value](value);
 
 class Node {
-	constructor ({ name, children = [], version = 'latest' }) {
+	constructor ({ name, children = [], version }) {
 		this.id = uuid();
 		this.name = name;
 		this.version = version;

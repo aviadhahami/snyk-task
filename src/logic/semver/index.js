@@ -18,7 +18,6 @@ import { generateURL } from '../../api';
  * @returns "latest" satisfying version for a given package
  */
 export const packageInfo = async (p, v) => {
-
 	// Danger!
 	const url = await generateURL({ name: p, fetchPackageInfo: true });
 	const {
@@ -26,10 +25,11 @@ export const packageInfo = async (p, v) => {
 			versions
 		}
 	} = await axios.get(url);
-	return semver.maxSatisfying(Object.keys(versions), v);
+	const version = semver.maxSatisfying(Object.keys(versions), v);
+	return { name: p, version };
 };
 
-export const packageNameForCache = (p, v) => {
-	const { name, version } = packageInfo(p, v);
+export const packageNameForCache = async(p, v) => {
+	const { name, version } = await packageInfo(p, v);
 	return `${name}@${version}`;
 };

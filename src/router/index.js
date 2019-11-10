@@ -9,10 +9,10 @@ router.get('/healthcheck', (req, res) => {
 
 const path = '/package/:packageName';
 
-// Redirecting to `latest` if no version was specified
-router.get(path, (req, res) => {
-	return res.redirect(`/package/${req.params.packageName}/latest`);
-});
+// // Redirecting to `latest` if no version was specified
+// router.get(path, (req, res) => {
+// 	return res.redirect(`/package/${req.params.packageName}/latest`);
+// });
 router.get(`${path}/:packageVersion`, packageFetcher);
 
 export default router;

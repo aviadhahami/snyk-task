@@ -5,14 +5,14 @@ describe('semver test suite', () => {
 		it('should export funcs', () => {
 			expect(typeof packageInfo).toEqual('function');
 		});
-		it('should return predicted object', () => {
-			expect(packageInfo('a', '2')).toEqual({ name: 'a', version: '2' });
+		it('should return predicted object', async () => {
+			expect(await packageInfo('a', '2')).toEqual({ name: 'a', version: '2.1.2' });
 		});
-		it('should trim semver notation', () => {
-			expect(packageInfo('rimraf', '~2.2.1')).toEqual({ name: 'rimraf', version: '2.2.1' });
+		it('should trim semver notation', async () => {
+			expect(await packageInfo('rimraf', '~2.2.1')).toEqual({ name: 'rimraf', version: '2.2.8' });
 		});
-		it('should fallback to "latest" for no version input', () => {
-			expect(packageInfo('rimraf')).toEqual({ name: 'rimraf', version: 'latest' });
+		it('should fallback to "latest" for no version input', async () => {
+			expect(await packageInfo('rimraf')).toEqual({ name: 'rimraf', version: 'latest' });
 		});
 	});
 
@@ -20,11 +20,11 @@ describe('semver test suite', () => {
 		it('should export funcs', () => {
 			expect(typeof packageNameForCache).toEqual('function');
 		});
-		it('should stringify version info for cache purposes', () => {
-			expect(packageNameForCache('rimraf', '~2.2.1')).toEqual('rimraf@2.2.1');
+		it('should stringify version info for cache purposes', async () => {
+			expect(await packageNameForCache('rimraf', '~2.2.1')).toEqual('rimraf@2.2.1');
 		});
-		it('should be able to handle "latest" as a version', () => {
-			expect(packageNameForCache('rimraf', 'latest')).toEqual('rimraf@latest');
+		it('should be able to handle "latest" as a version', async () => {
+			expect(await packageNameForCache('rimraf', 'latest')).toEqual('rimraf@latest');
 		});
 	});
 });
