@@ -1,7 +1,7 @@
 import { API } from './../config';
 import { packageInfo } from '../logic/semver';
 
-const generateURL = ({ name, version, fetchPackageInfo = false } = {}) => {
+const generateURL = async ({ name, version, fetchPackageInfo = false } = {}) => {
 	if (!name) { throw new Error('No name supplied'); }
 
 	const buffer = [];
@@ -9,7 +9,7 @@ const generateURL = ({ name, version, fetchPackageInfo = false } = {}) => {
 	buffer.push(name);
 	if (!fetchPackageInfo) {
 		if (!name.includes('@')) {
-			const info = packageInfo(name, version);
+			const info = await packageInfo(name, version);
 			buffer.push((info.version));
 		}
 	}

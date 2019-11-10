@@ -11,15 +11,22 @@ import { generateURL } from '../../api';
 
 // TODO: Cache resolved
 
+/**
+ *
+ * @param p
+ * @param v
+ * @returns "latest" satisfying version for a given package
+ */
 export const packageInfo = async (p, v) => {
-	const url = generateURL({ name: p, fetchPackageInfo: true });
+
+	// Danger!
+	const url = await generateURL({ name: p, fetchPackageInfo: true });
 	const {
 		data: {
 			versions
 		}
 	} = await axios.get(url);
-	const latest = semver.maxSatisfying(Object.keys(versions));
-	console.log(latest);
+	return semver.maxSatisfying(Object.keys(versions), v);
 };
 
 export const packageNameForCache = (p, v) => {

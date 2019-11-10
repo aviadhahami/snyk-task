@@ -12,7 +12,7 @@ const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 		if (entry) {
 			return entry;
 		} else {
-			const url = generateURL({ name: packageName, version: packageVersion });
+			const url = await generateURL({ name: packageName, version: packageVersion });
 			console.log(`Fetching ${url}`);
 			const {
 				data: {
