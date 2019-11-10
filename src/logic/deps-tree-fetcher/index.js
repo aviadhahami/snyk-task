@@ -6,7 +6,7 @@ import { packageNameForCache } from '../semver';
 
 const fetchDepsTree = async ({ packageName, packageVersion = 'latest' }) => {
 	const tree = new Node({ name: packageName, version: packageVersion });
-	const cacheName = packageNameForCache(packageName, packageVersion);
+	const cacheName = await packageNameForCache(packageName, packageVersion);
 	try {
 		const entry = await Cache.get(cacheName);
 		if (entry) {
